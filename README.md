@@ -10,8 +10,10 @@ This program will be a version of the Brick Breaker game. To begin, the program 
 Structure of the Program:
 This program will contains the following classes:
 **Main:** Will control the overal loop of the game 
+
 Attributes:
 - A GameBoard -> will initialize and draw 
+
 Methods:
 - check_key_input: Will check if there is a key pressed and if so, which one 
 - check_mouse_input: Will if there is a mouse input 
@@ -38,7 +40,7 @@ Attributes:
 - radius 
 - color?
 
-Methods
+Methods:
 - move_ball: Will change the x and y position of the ball to move it 
 - draw_ball: Will produce an image of the ball  
 
@@ -65,7 +67,7 @@ Attributes:
 - width
 - velocity
 
-Methods
+Methods:
 - move_paddle: Given a key input, will change the x of the paddle. Will increase/decreae by the velocity
 - draw_paddle: Will produce an image of the paddle
 
@@ -75,5 +77,9 @@ Tools & Libraries:
 This program will include the use of the Pygame module. This module is essential a GUI and will help draw the objects and create graphics. There is a possibility that tkinter can be used instead of Pygame. 
 
 Highest Priority Features:
+- generating the brick pattern etting the brick pattern to
 Medium Priority Features:
+- giving the user 3 tries to get all the bricks 
 Lowest Priority Features:
+- giving the bricks "lives" themselves. ex) some bricks must be hit 3 times to disapper
+- lets the user play the game again 
