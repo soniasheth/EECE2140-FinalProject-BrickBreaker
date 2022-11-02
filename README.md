@@ -9,8 +9,8 @@ This program will be a version of the Brick Breaker game. To begin, the program 
 
 Structure of the Program:
 This program will contains the following classes:
-Main: Will control the overal loop of the game 
-GameBoard Class: This class will hold all the elements needs for the game
+**Main:** Will control the overal loop of the game 
+**GameBoard Class:** This class will hold all the elements needs for the game
 
 Attributes:
 - An array of Bricks 
@@ -22,7 +22,7 @@ Methods:
 - check_mouse_input: Will if there is a mouse input 
 
 
-Ball Class: This class will create the ball object which move throughout. 
+**Ball Class**: This class will create the ball object which move throughout. 
 
 Attributes: 
 - x position 
@@ -36,7 +36,7 @@ Methods
 - draw_ball: Will produce an image of the ball  
 
 
-Brick Class: This class will create one brick. 
+**Brick Class:** This class will create one brick. 
 
 Attributes: 
 - x position 
@@ -49,7 +49,7 @@ Attributes:
 Methods:
 - Draw_Brick: Will produce an image of the brick 
                  
-Paddle Class: This class will create the paddle. 
+**Paddle Class:** This class will create the paddle. 
 
 Attributes: 
 - x position 
