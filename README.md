@@ -57,6 +57,5 @@ Tools & Libraries:
 This program will include the use of the Pygame module. This module is essential a GUI and will help draw the objects and create graphics. There is a possibility that tkinter can be used instead of Pygame. 
 
 Highest Priority Features:
--
 Medium Priority Features:
 Lowest Priority Features:
