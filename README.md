@@ -9,47 +9,58 @@ This program will be a version of the Brick Breaker game. To begin, the program 
 
 Structure of the Program:
 This program will contains the following classes:
-- Main: Will control the overal loop of the game 
-- GameBoard Class: This class will hold all the elements needs for the game
-        = Attributes:
-                - An array of Bricks 
-                - A Ball
-                - A Paddle 
-        - Methods:
-                - check_key_input: Will check if there is a key pressed and if so, which one 
-                - check_mouse_input: Will if there is a mouse input 
+Main: Will control the overal loop of the game 
+GameBoard Class: This class will hold all the elements needs for the game
 
-- Ball Class: This class will create the ball object which move throughout. 
-        -  Attributes: 
-                  - x position 
-                  - y position 
-                  - velocity 
-                  - radius 
-                  - color?
-        -  Methods
-                - move_ball: Will change the x and y position of the ball to move it 
-                - draw_ball: Will produce an image of the ball         
--  Brick Class: This class will create one brick. 
-        -  Attributes: 
-                  - x position 
-                  - y position 
-                  - length
-                  - width
-                  - color?
-                  - hit_status: a boolean value and represents whether it has been hit or not 
-        -  Methods
-                 - Draw_Brick: Will produce an image of the brick 
+Attributes:
+- An array of Bricks 
+- A Ball
+- A Paddle 
+
+Methods:
+- check_key_input: Will check if there is a key pressed and if so, which one 
+- check_mouse_input: Will if there is a mouse input 
+
+
+Ball Class: This class will create the ball object which move throughout. 
+
+Attributes: 
+- x position 
+- y position 
+- velocity 
+- radius 
+- color?
+
+Methods
+- move_ball: Will change the x and y position of the ball to move it 
+- draw_ball: Will produce an image of the ball  
+
+
+Brick Class: This class will create one brick. 
+
+Attributes: 
+- x position 
+- y position 
+- length
+- width
+- color?
+- hit_status: a boolean value and represents whether it has been hit or not 
+
+Methods:
+- Draw_Brick: Will produce an image of the brick 
                  
-- Paddle Class: This class will create the paddle. 
-        -  Attributes: 
-                  - x position 
-                  - y position 
-                  - length
-                  - width
-                  - velocity
-        -  Methods
-                - move_paddle: Given a key input, will change the x of the paddle. Will increase/decreae by the velocity
-                - draw_paddle: Will produce an image of the paddle
+Paddle Class: This class will create the paddle. 
+
+Attributes: 
+- x position 
+- y position 
+- length
+- width
+- velocity
+
+Methods
+- move_paddle: Given a key input, will change the x of the paddle. Will increase/decreae by the velocity
+- draw_paddle: Will produce an image of the paddle
 
 *More classes and methods will probabky be added as the program is developed
 
