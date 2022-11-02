@@ -10,6 +10,14 @@ This program will be a version of the Brick Breaker game. To begin, the program 
 Structure of the Program:
 This program will contains the following classes:
 **Main:** Will control the overal loop of the game 
+Attributes:
+- A GameBoard -> will initialize and draw 
+Methods:
+- check_key_input: Will check if there is a key pressed and if so, which one 
+- check_mouse_input: Will if there is a mouse input 
+- methods to update the attributes of the GameBoard -> probably smart to have one for each change -> there is a lot of this 
+- collison? -> will check if the ball has collided with a brick or not 
+
 **GameBoard Class:** This class will hold all the elements needs for the game
 
 Attributes:
@@ -18,8 +26,7 @@ Attributes:
 - A Paddle 
 
 Methods:
-- check_key_input: Will check if there is a key pressed and if so, which one 
-- check_mouse_input: Will if there is a mouse input 
+- draw_gameboard: Will draw the game board/ element in the game board
 
 
 **Ball Class**: This class will create the ball object which move throughout. 
