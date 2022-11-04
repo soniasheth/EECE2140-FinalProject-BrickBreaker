@@ -87,6 +87,7 @@ Highest Priority Features:
 - getting the ball to move consistently within the pop up window
 - getting the paddle to move with key inputs 
 - ending the game when the ball misses the paddle 
+- drawing the paddle, ball, and bricks. Making it visual!
 
 Medium Priority Features:
 - giving the user 3 tries to get all the bricks 
