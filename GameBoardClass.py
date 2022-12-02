@@ -7,9 +7,9 @@ class GameBoardClass():
 
     '''
     def __init__(self):
-        bricks = None
-        ball = None
-        paddle = None
+        self.bricks = None
+        self.ball = None
+        self.paddle = None
         pass
     def draw_gameboard(self):
         '''

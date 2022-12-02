@@ -9,13 +9,13 @@ class Ball():
     '''
     def __init__(self):
         #x position 
-        x = None
+        self.x = None
         #y position 
-        y = None 
+        self.y = None 
         #speed 
         vel = None
         #color
-        color = None
+        self.color = None
         pass
     def move_ball(self):
         '''

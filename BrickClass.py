@@ -1,3 +1,4 @@
+import pygame
 class Brick():
     '''
     This class will create one brick, part of the blocks of bricks in the overall game. 
@@ -10,20 +11,20 @@ class Brick():
         '''
         Initializes the 
         '''
-        x = None
-        y = None 
-        length = None
-        width = None 
-        color = None
+        self.x = None
+        self.y = None 
+        self.height = None
+        self.width = None 
+        self.color = None
         #Boolean value that represents whether the brick has been hit or not 
-        hit_status = None
-        pass
+        self.hit_status = None
+        
 
-    def draw_brick(self):
+    def draw_brick(self, window):
         '''
         Inputs: None
         Outputs: An image of the ball, given its attributes
 
         This method Will produce an image of the brick at its current x and y coordinate
         '''
-        pass
+        pygame.draw.rect(window, self.color , (self.x, self.y, self.width, self.height))
