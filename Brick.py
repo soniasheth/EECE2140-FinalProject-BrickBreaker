@@ -1,4 +1,5 @@
 import pygame
+
 class Brick():
     '''
     This class will create one brick, part of the blocks of bricks in the overall game. 
@@ -7,17 +8,18 @@ class Brick():
     A Brick has one method to draw the brick onto the screen. 
 
     '''
-    def __init__(self):
+    def __init__(self,x,y):
         '''
-        Initializes the 
+        Initializes a singular brick. Function takes in the x and y position of the brick
         '''
-        self.x = None
-        self.y = None 
-        self.height = None
-        self.width = None 
-        self.color = None
+        self.x = x
+        self.y = y
+        self.height = 40
+        self.width = 80
+        self.color = (0,255,0)
         #Boolean value that represents whether the brick has been hit or not 
-        self.hit_status = None
+        self.hit_status = False
+        self.brick_rec = pygame.Rect(self.x, self.y, self.width, self.height)
         
 
     def draw_brick(self, window):
@@ -27,4 +29,4 @@ class Brick():
 
         This method Will produce an image of the brick at its current x and y coordinate
         '''
-        pygame.draw.rect(window, self.color , (self.x, self.y, self.width, self.height))
+        pygame.draw.rect(window, self.color , self.brick_rec)

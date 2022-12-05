@@ -5,15 +5,14 @@
 #variables: 
 #one GameBoard class 
 
-'''
-Will be a a large while loop that utilizes the functions to run the game
-
-'''
-
+#import classes and modules to be used
 import pygame
 from Paddle import *
+from Brick import *
+from Ball import *
+from GameBoard import *
 
-#initlizes the pygame 
+#initlizes the pygame and allows us to use the 
 pygame.init()
 
 #makes the window that the game will be displayed on 
@@ -26,25 +25,27 @@ running = True
 pygame.display.set_caption("Brick Breaker")
 
 #colors
+#(R,G,B) <- format
 black = (0,0,0)
-white = None
+white = (255,255,255)
 
-#initialize objects 
-
-paddle = Paddle()
+#initialize objects - gameboard holds all the objects
+gameboard = GameBoard()
 
 def check_key_input():
     '''
-    Inputs: 
-    Outputs: String, returns the specific key that is being pressed 
+    Inputs: None
+    Outputs: None
 
     Will check if there is a key pressed and if so, move the paddle if the correct key is pressed 
+    Left arrow pressed -> move the paddle left 
+    Right arrow pressed -> move paddle right 
     '''
     if event.type == pygame.KEYDOWN:
         if event.key == pygame.K_LEFT:
-            paddle.move_paddle(0)
+            gameboard.paddle.move_paddle(0)
         if event.key == pygame.K_RIGHT:
-            paddle.move_paddle(1)
+            gameboard.paddle.move_paddle(1)
 
 
 def check_mouse_input():
@@ -60,13 +61,22 @@ def check_collision_brick():
 
     '''
     Inputs: 
-    Outputs: 
+    Outputs: Boolean
 
     Will check if the ball has collided with any brick in the board or not
-    If so, need to access the brick array and delete it
+    If so, need to access the brick array and turn hit status to on!
     AND access the x and y coordinte of the the ball to redirect its movement
     '''
-    pass
+    collision = False
+    ball = gameboard.ball
+    for row in range(2):
+        for col in range(7):
+            current_brick = gameboard.bricks[row,col]
+            if (ball.x >= current_brick.x) and (ball.x <= current_brick.x + current_brick.width) and (ball.y >= current_brick.y) and (ball.y < current_brick.y + current_brick.height):
+                collision = True
+                current_brick.hit_status = True
+    return collision
+
 
 def check_collision_paddle():
 
@@ -90,15 +100,19 @@ def done():
     '''
     pass
 
+
 #main game loop
 while running: 
-    window.fill(black)
+    window.fill(white)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
         
     check_key_input()
-    paddle.draw_paddle(window)
+    check_collision_brick()
+    gameboard.draw_gameboard(window)
+    gameboard.ball.move_ball()
+    
 
     pygame.display.update() 
 

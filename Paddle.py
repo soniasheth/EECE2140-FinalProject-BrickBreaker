@@ -10,13 +10,15 @@ class Paddle():
 
     '''
     def __init__(self):
-    
+       #starting x and y position of the paddle
        self.x = 300
        self.y = 450
        self.height = 10
-       self.width = 150
+       self.width = 115
        self.x_vel = 7
-       self.color = (255,0,255)
+       self.color = (255,0,255) #magenta 
+       #holds the rectangle
+       self.paddle_rec = pygame.Rect(self.x, self.y, self.width, self.height)
        
     def move_paddle(self, direction):
         '''
@@ -25,10 +27,18 @@ class Paddle():
 
         This method will change the x of the paddle object in order to 'move' it
         '''
-        if direction == 1:
-            self.x = (self.x + self.x_vel) % 600
-        else:
-            self.x = (self.x - self.x_vel) % 600
+        #if(self.x+(self.width/2) >= 600 or self.x-(self.width/2 <= 0):
+            #self.x_vel= (-1)*self.x_vel
+        #self.x = (self.x + self.x_vel)
+        #if direction == 1:
+            #self.x = (self.x + self.x_vel) % 600
+        #else:
+            #self.x = (self.x - self.x_vel) % 600
+
+        if direction == 1 and not self.x+(self.width/2) >= 600:
+                self.x = (self.x + self.x_vel)
+        if direction == 0 and not self.x-(self.width/2) <= 0:
+                self.x = (self.x - self.x_vel)
 
     def draw_paddle(self, window):
         '''
@@ -37,6 +47,4 @@ class Paddle():
 
         This method Will produce an image of the paddle at its current x and y coordinates.
         '''
-        pygame.draw.rect(window, self.color , (self.x, self.y, self.width, self.height))
-
-        
+        pygame.draw.rect(window, self.color , ((self.x - (self.width/2)), self.y, self.width, self.height))
