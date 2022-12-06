@@ -14,20 +14,21 @@ class GameBoard():
 
     '''
     def __init__(self):
-        #numpy array holds all bricks to be hit 
+        #numpy array holds all bricks to be hit
         self.bricks = np.empty([3,7], dtype=Brick)
         #x and y starting position of brick 1
         self.x = 5
-        self.y = 5
+        self.y = 60
         #create pattern of 14 bricks - update 
-        for row in range(2):
+        for row in range(3):
             for col in range(7):
                 brick = Brick(self.x, self.y)
                 self.bricks[row, col] = brick
                 self.x+=85 #increment the x value for the next brick
             #starting a new row of bricks, so reset the values 
             self.x = 5
-            self.y = 50
+            #self.y = 85
+            self.y = self.y + 45
 
 
         self.ball = Ball()
@@ -46,7 +47,7 @@ class GameBoard():
         self.ball.draw_ball(window)
         self.paddle.draw_paddle(window)
         #goes through the array and draws all the bricks which havent been hit yet
-        for row in range(2):
+        for row in range(3):
             for col in range(7):
                 #check if the brick has been hit, and draw if it not 
                 if self.bricks[row][col].hit_status == False:

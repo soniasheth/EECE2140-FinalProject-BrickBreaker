@@ -15,9 +15,9 @@ class Ball():
         self.radius = 12
         self.velx = 1
         self.vely = 1
-        self.color = (0,0,0) #black
+        self.color = (255,255,255) #black
         
-    def move_ball(self):
+    def move_ball(self, hit):
         '''
         Inputs: None
         Outputs: A new set of x and y coordinates 
@@ -29,7 +29,11 @@ class Ball():
             self.velx = (-1) * self.velx
 
         if(self.y+self.radius >= 500 or self.y-self.radius <= 0):
-            self.vely = (-1)*self.vely
+            self.vely = (-1) * self.vely
+        #if the ball collides with something, it will bounce in another direction COME BACK AND CHANGE SLOPES AND STUFF 
+        if hit:
+            self.velx = (-1) * self.velx
+            self.vely = (-1) * self.vely
 
         self.x = (self.x + self.velx)
         self.y = (self.y + self.vely)

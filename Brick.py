@@ -16,7 +16,7 @@ class Brick():
         self.y = y
         self.height = 40
         self.width = 80
-        self.color = (0,255,0)
+        self.color = (255,0,0)
         #Boolean value that represents whether the brick has been hit or not 
         self.hit_status = False
         self.brick_rec = pygame.Rect(self.x, self.y, self.width, self.height)

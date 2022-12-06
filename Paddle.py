@@ -13,12 +13,12 @@ class Paddle():
        #starting x and y position of the paddle
        self.x = 300
        self.y = 450
-       self.height = 10
+       self.height = 15
        self.width = 115
        self.x_vel = 7
-       self.color = (255,0,255) #magenta 
+       self.color = (0,0,255) #magenta 
        #holds the rectangle
-       self.paddle_rec = pygame.Rect(self.x, self.y, self.width, self.height)
+       #self.paddle_rec = pygame.Rect(self.x, self.y, self.width, self.height)
        
     def move_paddle(self, direction):
         '''
@@ -47,4 +47,5 @@ class Paddle():
 
         This method Will produce an image of the paddle at its current x and y coordinates.
         '''
-        pygame.draw.rect(window, self.color , ((self.x - (self.width/2)), self.y, self.width, self.height))
+        pygame.draw.rect(window, self.color , ((self.x - (self.width/2), self.y, self.width, self.height)))
+        #(self.x - (self.width/2)
