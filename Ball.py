@@ -24,7 +24,7 @@ class Ball():
 
         This method will change the x and y position of the ball object in order to move it
         '''
-        #check if collide with walls, change velocity if so 
+        #check if collide with left and right wall, change velocity to opposite direction 
         if(self.x+self.radius >= 600 or self.x-self.radius <= 0):
             self.velx = (-1) * self.velx
 
