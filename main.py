@@ -6,8 +6,13 @@ from Brick import *
 from Ball import *
 from GameBoard import *
 
-#initlizes the pygame and allows us to use the 
+#initlizes the pygame and allows us to use the pygame molule
 pygame.init()
+
+#stuff needed for the fonts & displaying text
+pygame.font.init()
+font = pygame.font.SysFont(None, 48)
+
 
 #makes the window that the game will be displayed on 
 window = pygame.display.set_mode((600, 500))
@@ -31,6 +36,9 @@ gameboard = GameBoard()
 rounds = 1
 #toggles back and forth between 0 and 1 to represent the ball movement 
 start = 0
+#have to keep track of the brick that was hit to control bounce direction 
+brick_x = None
+#trackers players li
 
 
 def check_key_input():
@@ -73,6 +81,9 @@ def check_collision_brick():
             if (current_brick.hit_status == False) and (ball.x >= current_brick.x) and (ball.x <= current_brick.x + current_brick.width) and (ball.y >= current_brick.y) and (ball.y <= current_brick.y + current_brick.height):
                 collision = True
                 current_brick.hit_status = True
+                global brick_x, brick_y
+                brick_x = current_brick.x
+                brick_y = current_brick.y
 
     return collision
 
@@ -105,7 +116,7 @@ def round_over():
     If so, the ball and paddle positions will reset to their starting position because the round is over.
     '''
     global rounds
-    if (gameboard.ball.y + gameboard.ball.radius >= 500):
+    if (gameboard.ball.y + gameboard.ball.radius >= 490):
         global start 
         #stop the ball from moving
         start = 0
@@ -155,24 +166,26 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-
+    #add something that will display the lives of the players to the screen as well 
+    
     if not gameover():
         gameboard.draw_gameboard(window)
         check_key_input()     
         if start == 1:
-            gameboard.ball.move_ball(check_collision_brick(), "b", "insert args")
+            gameboard.ball.move_ball(check_collision_brick(), "b", brick_x)
             gameboard.ball.move_ball(check_collision_paddle(), "p", gameboard.paddle.x) #have to know where the paddle is which is why i need to send paddle to the move ball function
         #checks if the round if over and if so, incremeners the round count.
         round_over()
     
     #game ended, now display appripate screen if they won or loss
-    if rounds >= 4:
-        #write to screen for losing
-        pass
+    else: 
+        if rounds >= 4:
+            img = font.render('You lost!', True, (255,0,0))
+            window.blit(img, (240,250))
 
-    else:
-        #writing to screen for winning 
-        pass
+        else:
+            img = font.render('You won', True, (255,0,0))
+            window.blit(img, (240,250))
         
     
     pygame.display.update() 
