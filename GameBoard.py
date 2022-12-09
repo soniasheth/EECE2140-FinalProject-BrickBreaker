@@ -4,7 +4,7 @@ from Paddle import *
 from Brick import *
 from Ball import *
 
-
+#class has access to all the objects in the 
 class GameBoard():
     '''
     This class will hold all the elements needed for the Brick Breaker game. 
@@ -52,3 +52,5 @@ class GameBoard():
                 #check if the brick has been hit, and draw if it not 
                 if self.bricks[row][col].hit_status == False:
                     self.bricks[row, col].draw_brick(window)
+    
+   

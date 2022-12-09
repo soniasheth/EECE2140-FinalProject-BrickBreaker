@@ -44,14 +44,16 @@ def check_key_input():
     '''
     if event.type == pygame.KEYDOWN:
         #controls the movement of the paddle 
-        if event.key == pygame.K_LEFT:
-            gameboard.paddle.move_paddle(0)
-        if event.key == pygame.K_RIGHT:
-            gameboard.paddle.move_paddle(1)
         #start the game
         if event.key == pygame.K_RETURN:
             global start
             start = 1
+        if event.key == pygame.K_LEFT:
+            if start == 1:
+                gameboard.paddle.move_paddle(0)
+        if event.key == pygame.K_RIGHT:
+            if start == 1:
+                gameboard.paddle.move_paddle(1)
 
 def check_collision_brick():
     '''
@@ -158,8 +160,8 @@ while running:
         gameboard.draw_gameboard(window)
         check_key_input()     
         if start == 1:
-            gameboard.ball.move_ball(check_collision_brick())
-            gameboard.ball.move_ball(check_collision_paddle())
+            gameboard.ball.move_ball(check_collision_brick(), "b", "insert args")
+            gameboard.ball.move_ball(check_collision_paddle(), "p", gameboard.paddle.x) #have to know where the paddle is which is why i need to send paddle to the move ball function
         #checks if the round if over and if so, incremeners the round count.
         round_over()
     
