@@ -2,9 +2,9 @@ import pygame
 
 class Brick():
     '''
-    This class will create one brick, part of the blocks of bricks in the overall game. 
+    This class creates one brick, part of the blocks of bricks in the overall game. 
 
-    A Brick has 6 attributes: x position, y position, length, width, color, and a hit status 
+    A Brick has 6 attributes: x position, y position, height, width, color, a hit status
     A Brick has one method to draw the brick onto the screen. 
 
     '''
@@ -16,10 +16,8 @@ class Brick():
         self.y = y
         self.height = 40
         self.width = 80
-        self.color = (255,0,0)
-        #Boolean value that represents whether the brick has been hit or not 
-        self.hit_status = False
-        self.brick_rec = pygame.Rect(self.x, self.y, self.width, self.height)
+        self.color = (255,0,0) 
+        self.hit_status = False #Boolean value that represents whether the brick has been hit or not
         
 
     def draw_brick(self, window):
@@ -27,6 +25,6 @@ class Brick():
         Inputs: None
         Outputs: An image of the ball, given its attributes
 
-        This method Will produce an image of the brick at its current x and y coordinate
+        This method produces an image of the brick at its current x and y coordinate
         '''
-        pygame.draw.rect(window, self.color , self.brick_rec)
+        pygame.draw.rect(window, self.color , (self.x, self.y, self.width, self.height))

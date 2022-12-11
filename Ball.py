@@ -3,11 +3,12 @@ class Ball():
     '''
     This class will create the ball object which moves throughout the brick breaker game.
 
-    A Ball has 7 attributes: x position, y posiiton, x-velocity, y-velocity, color, and whether the ball is moving up and down or not
+    A Ball has 7 attributes: x position, y posiiton, x-velocity, y-velocity, color, radius, and whether the ball is moving up and down or not
     
     A Ball has 4 methods:
+    - initlization 
     - one to move the ball by changing the x and y coordinates of the ball 
-        - this function has one helpers that help change the direction of the ball:
+        - this function has one helper that help change the direction of the ball:
             - one function that handles if the ball needs to bounce off the top and bottom of the brick and paddle.
     - one to draw the ball itself onto the screen
 
@@ -117,7 +118,7 @@ class Ball():
         Inputs: None
         Outputs: An image of the ball, given its attributes
 
-        This method will produce an image of the ball at its current x and y coordinates.
+        This method produces an image of the ball at its current x and y coordinates.
         '''
         pygame.draw.circle(window, self.color, (self.x, self.y), self.radius)
 

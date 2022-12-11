@@ -1,3 +1,4 @@
+
 import pygame 
 import numpy as np
 from Paddle import *
@@ -10,7 +11,10 @@ class GameBoard():
     This class initializes and holds all the elements and functions needed for the Brick Breaker game. 
     This includes a 2D array of Brick objects, one Ball object, and one Paddle object. (Attributes)
 
-    A GameBoard has five methods:
+    A GameBoard has 9 attributes ...
+
+    A GameBoard has 6 methods:
+    - Initializtion
     - one to draw the contents of the game board on the screen
     - one to check if there is a collision between the ball and the paddle
     - one to check if there is a collsion between the ball and any of the bricks 
@@ -71,22 +75,21 @@ class GameBoard():
         Inputs: None 
         Outputs: Boolean, whether there was a collision with the ball and any one of the bricks or not 
 
-        Will check if the ball has collided with any brick in the board or not
-        If so, need to access the brick array and turn hit status to the hit brick to on!
+        Checks if the ball has collided with any brick in the board or not
+        If so, accesses the brick array and turn hit status to the hit brick to on
         '''
         collision = False
         #loop through the array of Bricks
         for row in range(3):
             for col in range(7):
                 current_brick = self.bricks[row,col]
-            #the ball's coordinates match the outer rim of the brick AND the brick hasn't been hit before -> mark brick has hit
-            #goes through each brick 
-            if (current_brick.hit_status == False) and (self.ball.x >= current_brick.x) and (self.ball.x <= current_brick.x + current_brick.width) and (self.ball.y >= current_brick.y) and (self.ball.y <= current_brick.y + current_brick.height):
-                collision = True
-                current_brick.hit_status = True
-                #need to track which brick has been hit in order for the ball bounce to properly 
-                self.brick_x = current_brick.x
-                break
+                #the ball's coordinates match the outer rim of the brick AND the brick hasn't been hit before -> mark brick has hit
+                #goes through each brick 
+                if (current_brick.hit_status == False) and (self.ball.x >= current_brick.x) and (self.ball.x <= current_brick.x + current_brick.width) and (self.ball.y >= current_brick.y) and (self.ball.y <= current_brick.y + current_brick.height):
+                    collision = True
+                    current_brick.hit_status = True
+                    #need to track which brick has been hit in order for the ball bounce to properly 
+                    self.brick_x = current_brick.x
 
         return collision
 
@@ -96,9 +99,8 @@ class GameBoard():
         Inputs: None 
         Outputs: Boolean, whether there was a collision with the ball or paddle or not 
 
-        Will check if the ball collided with any part of the the paddle 
-        If so, need to access the x and y coodindate of the ball and change them to redirect the ball movement
-        only want the collision to be at the top part of the paddle and the sides 
+        Check if the ball collided with any part of the the paddle 
+        If so, returns true. Else, returns false. 
         '''
 
         collision = False
@@ -112,15 +114,14 @@ class GameBoard():
         Inputs: None 
         Outputs: None, just checks and performs the function
 
-        This function will check whether the ball has traveled below the paddle. (Surpassed the paddle's y coodinate)
+        This function checks whether the ball has traveled below the paddle. (Surpassed the paddle's y coodinate)
         If so, the ball and paddle positions will reset to their starting position because the round is over.
         '''
         #check if the y coodinate of the ball is below the paddle
         #if so, reset the position of the ball and paddle to the original position & switch start to OFF
         if (self.ball.y + self.ball.radius >= 490):
             #stop the ball from moving -> turn start off 
-            global start
-            start = 0
+            self.start = 0
             #reset the position of ball & paddle to starting position
             self.ball.x = 300
             self.ball.y = 438
@@ -134,9 +135,9 @@ class GameBoard():
         Inputs: None
         Outputs: Boolean, whether the entire game is over or not yet
 
-        Will check if:
-        - all bricks are hit: (WIN)
-        - 3 rounds have been exceeded (LOSE)
+        This functions checks if the game is over yet: 
+        - all bricks are hit: (WIN) OR 3 rounds have been exceeded (LOSE) -> Return True 
+        - Else, return False because the game is not over 
         '''
         def check_all_hit():
             '''
@@ -160,7 +161,7 @@ class GameBoard():
         #if all rounds have exceeded 3, then the game is over and you lose.
         #in both of these cases, return True because the game is over.
         #otherwise, return False because the game isn't over yet.
-        if check_all_hit() or self.rounds >=4:
+        if check_all_hit() or self.rounds >= 4:
             return True
         else:
             return False

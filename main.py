@@ -1,35 +1,25 @@
 
 #import classes and modules to be used
 import pygame
-from Paddle import *
-from Brick import *
-from Ball import *
 from GameBoard import *
 
-#initlizes the pygame and allows us to use the pygame molule
-pygame.init()
+# all pygame initiliazations 
+pygame.init() #initlizes the pygame and allows us to use the pygame molule
+window = pygame.display.set_mode((600, 500)) #makes the window that the game will be displayed on - chose size 
+running = True #keeps track of whether the game is running or not
+pygame.display.set_caption("Brick Breaker") #sets the window name 
 
 #stuff needed for the fonts & displaying text, later in game loop
 pygame.font.init()
 font1 = pygame.font.SysFont(None, 48)
 font2 = pygame.font.SysFont(None, 24)
 
-
-#makes the window that the game will be displayed on - chose size 
-window = pygame.display.set_mode((600, 500))
-
-#keeps track of whether the game is running or not 
-running = True
-
-#sets the window name 
-pygame.display.set_caption("Brick Breaker")
-
 #colors
 #(R,G,B) <- format
 black = (0,0,0)
 white = (255,255,255)
 
-#initialize objects - gameboard holds all the objects
+#initialize object - gameboard holds all the objects and methods to play the game 
 gameboard = GameBoard()
 
 def check_key_input():
@@ -37,7 +27,7 @@ def check_key_input():
     Inputs: None
     Outputs: None
 
-    Will check if there is a key pressed and if so, move the paddle if the correct key is pressed
+    Checks if there is a key pressed and if so, move the paddle if the correct key is pressed
     ***Will only allow the paddle to move if the return key has been pressed  
 
     Left arrow pressed -> move the paddle left 
