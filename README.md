@@ -3,7 +3,7 @@ Final Project for EECE2140: The Brick Breaker game.
 
 Creator: Sonia Sheth
 
-Summary 
+**Summary**
 
   Brick Breaker is a classic game in which a player must 'smash' all bricks in a wall by deflecting a boucing ball with a paddle. The player is able to move the paddle from left to right (and vice versa) in order to deflect the ball. If the player fails to catch/deflect the ball with the paddle before all the bricks are gone, the player loses.
   
@@ -11,10 +11,10 @@ Summary
   
   If the ball hits a brick, the brick is 'hit' and will disappear and the ball will deflect in a different direction depending on where the ball hit the brick. If the ball hits the paddle, the ball will also deflect back up in a different direction depending on where the ball hit the paddle. Each time the player fails to 'catch'/ 'deflect' the ball with the paddle, the round is over and the ball and paddle will reset to their original position. To start a new round, the 'enter' key must be pressed again. If the player fails to hit all the bricks in under 3 rounds, the game is over and the player loses. On the contrary, if the player hits all the bricks in 3 rounds or less, the player wins.
   
-Tools & Libraries
+**Tools & Libraries**
 This program includes the use of the Pygame module. 
   
-Code Overview & Structure
+**Code Overview & Structure**
 
   In this program there are 4 classes and a main. The four classes include: Ball, Paddle, Brick, and GameBoard. At a high level, the Ball, Paddle, and Brick classes all hold the individual attributes and methods to control those individual objects in the game. The GameBoard class contains an initilaized ball, paddle, and an array of brick objects as attributes, along with the methods and other attributes to control game play. See below for detailed description for all classes and main. No inheritance between classes.
   
@@ -96,7 +96,7 @@ A GameBoard has 9 attributes
 
 A GameBoard has 6 methods: 
   - Init.
-   - This method intializes all the attributes described above to their starting values. This includes filling the array of bricks with the Brick objects
+    - This method intializes all the attributes described above to their starting values. This includes filling the array of bricks with the Brick objects
   - draw_gameboard
     - This method draws the game board elements in the game board: ALL the bricks, the ball, and the paddle 
     - Will access the draw functions of the other objects in order to do so 
@@ -132,25 +132,28 @@ Other:
 - The main also initilizes the pygame module and all the elements needed to use it.
 
 
+**Instructions for Use**
+
+1. Download and run the main code. (You are going to need pygame installed). A pop up screen with the game will appear. You should see 21 red bricks close to the top of the screen and a white ball on top of a blue paddle towards the bottom. 
+2. Press enter / return to start the round. This will prompt the movement of the ball. 
+3. After pressing enter, you can use the left and right arrow keys to move the paddle back and forth. The left arrow key will move the paddle left and the right arrow key will move the paddle right.
+4. Use the left and right arrow keys to move the paddle and 'catch' / 'deflect' the moving ball. You want the ball to hit the paddle and bounce back up.      If the ball misses the paddle, the round is over and the ball and paddle will rest.
+5. When a round is over, repeat steps 2-3
+6. For more clarity on the game, review the rules below
+
+Rules 
+1. The objective of the game is to hit all the bricks with the ball in 3 rounds or under. If you hit all the bricks in 3 rounds or under, then the player wins the game. Otherwise, they lose.
+2. In order to hit the bricks, move the paddle back and forth with the left and right arrow keys to catch/deflect the ball.
+3. If you miss the ball with the paddle, the round is over and the ball and paddle will reset. 
+4. There are 3 rounds in the game. If the player fail to hit all the bricks in 3 rounds or under, the player loses.
 
 
+**Future Development**
 
-  
+Below are a couple of ways to further development this Brick Breaker Program. 
 
-Highest Priority Features:
-- generating the brick pattern -> at least two rows of 4 
-- getting the ball to move consistently within the pop up window
-- getting the paddle to move with key inputs 
-- ending the game when the ball misses the paddle 
-- drawing the paddle, ball, and bricks. Making it visual!
-
-Medium Priority Features:
-- giving the user 3 tries to get all the bricks 
-- adding more to the brick pattern -> more rows
-
-Lowest Priority Features:
-- giving the bricks "lives" themselves. ex) some bricks must be hit 3 times to disapper
-- lets the user play the game again
-- have levels with increasing number of bricks
-- have increasing speed of the ball 
+1. **Changing Speed of the Ball**: Currently, the value of speed of the ball (x velocity & y velocity) stays the same when it collides with an object, only the direction changes by negating the values. A feature to add to the game is changing the value of the speed of the ball when it collides with an object. The speed of the ball should be adjusted based on WHERE it hits the object. For instance, if the ball hits the corner of the brick or paddle, this could lead to a faster ball. This would make the game more similar to the original Brick Breaker game. 
+2. **Give the bricks 'lives'**: Currently, the bricks are considered 'hit' after the ball collides with it one time. A feature to add would be to create certain bricks that need to be hit 2-3 times before being consider 'hit'. This would add some complexity to the game. 
+4. **Let the player play again**: Currently, the player is allowed to only play the game once. A loop could be added so that the game keeps playing until the player doesn't want to anymore.
+5. **Introduce levels & new brick patterns**: This related to #3. If a player wins the game, a feature that could be added is to have them move onto a new level with high complexity. This high complexity could include a new brick pattern and bricks with more lives as described in #2.
 
