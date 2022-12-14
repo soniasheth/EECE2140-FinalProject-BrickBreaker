@@ -134,7 +134,7 @@ Other:
 
 **Instructions for Use**
 
-1. Download and run the main code. (You are going to need pygame installed). A pop up screen with the game will appear. You should see 21 red bricks close to the top of the screen and a white ball on top of a blue paddle towards the bottom. 
+1. Download and run the main code. (You are going to need pygame and numpy installed). A pop up screen with the game will appear. You should see 21 red bricks close to the top of the screen and a white ball on top of a blue paddle towards the bottom. 
 2. Press enter / return to start the round. This will prompt the movement of the ball. 
 3. After pressing enter, you can use the left and right arrow keys to move the paddle back and forth. The left arrow key will move the paddle left and the right arrow key will move the paddle right.
 4. Use the left and right arrow keys to move the paddle and 'catch' / 'deflect' the moving ball. You want the ball to hit the paddle and bounce back up.      If the ball misses the paddle, the round is over and the ball and paddle will rest.
